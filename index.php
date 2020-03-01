@@ -8,6 +8,7 @@
     </title>
     <link rel="stylesheet" href="./css/vendors.min.css">
     <link rel="stylesheet" href="../css/main.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -363,8 +364,9 @@
         <section class="section order">
           <div class="container">
             <div class="section__title">Закажите доставку</div>
+              <div id="my_message" class="section__title section__title_white" style="font-size:2rem;"></div>
             <div class="order__form">
-              <form class="order__form-tag" id="order-form">
+              <form method="post" class="order__form-tag" id="order-form">
                 <div class="order__form-col">
                   <div class="order__form-row order__form-row_double">
                     <label class="order__form-block">
@@ -434,7 +436,7 @@
                     </div>
                     <div class="order__form-row">
                       <input class="order__form-button" name="" type="submit" value="Заказать">
-                      <input class="order__form-button order__form-button_reset" name="" type="reset" value="Очистить">
+                      <input onclick="ajaxRegister();" class="order__form-button order__form-button_reset" name="" type="reset" value="Очистить">
                     </div>
                   </div>
                 </div>
@@ -503,3 +505,19 @@
     <script src="./js/main.min.js"></script>
   </body>
 </html>
+<script>
+
+    $('#order-form').submit(function(){
+        $.post(
+            'src/index.php', // адрес обработчика
+            $("#order-form").serialize(), // отправляемые данные
+
+            function(msg) { // получен ответ сервера
+                $('#order-form').hide('slow');
+                $('#my_message').html(msg);
+            }
+        );
+        return false;
+    });
+
+</script>
