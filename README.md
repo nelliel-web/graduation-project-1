@@ -2,5 +2,13 @@
 
 ### Ссылка на админ панель
 ```bash
-http://burgers/admin.php
+http://burgers/src/admin.php
+```
+### База данных находится тут:
+```bash
+http://burgers/src/gp1_burgers.sql
+```
+### Файлы отправляются функцией:
+```bash
+mail()
 ```
