@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 02 2020 г., 17:33
+-- Время создания: Мар 02 2020 г., 23:10
 -- Версия сервера: 5.6.43
 -- Версия PHP: 7.3.9
 
@@ -30,17 +30,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `pay` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `call_back` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`) VALUES
-(1, 1),
-(2, 1),
-(3, 2);
+INSERT INTO `orders` (`id`, `user_id`, `pay`, `call_back`, `address`, `comment`) VALUES
+(74, 14, 'Не указано', 'Позвонить!', ' ул.Комсомольская, дом 1, корпус 2, квартира 43, этаж 5', 'DarkBeefBurger за 500 рублей, 1 шт'),
+(75, 14, 'Не указано', 'Не перезванивать', ' ул.Комсомольская, дом 1, корпус 2, квартира 43, этаж 5', 'DarkBeefBurger за 500 рублей, 1 шт'),
+(76, 14, 'Наличными. Потребуется сдача', 'Позвонить!', ' ул.Комсомольская, дом 1, корпус 2, квартира 43, этаж 5', 'DarkBeefBurger за 500 рублей, 1 шт'),
+(77, 15, 'Не указано', 'Позвонить!', '-', 'DarkBeefBurger за 500 рублей, 1 шт'),
+(78, 16, 'Оплата по карте', 'Не перезванивать', ' ул.Октябрьска, дом 3, корпус 5, квартира 1, этаж 2', 'DarkBeefBurger за 500 рублей, 1 шт'),
+(79, 16, 'Оплата по карте', 'Позвонить!', ' ул.Октябрьска, дом 3, корпус 5, квартира 1, этаж 2', 'DarkBeefBurger за 500 рублей, 1 шт');
 
 -- --------------------------------------------------------
 
@@ -60,8 +67,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `phone`) VALUES
-(1, 'myemail1@mail.ru', 'Василий', '+7 (900) 900 00 11'),
-(2, 'superemail@gmail.com', 'Jon', '+7 (900) 900 22 11');
+(14, 'earthjim2@yandex.ru', 'Jon', '+7 (342) 442 34 23'),
+(15, 'myemail3@mail.ru', '', ''),
+(16, 'mysuperemail1@gmail.com', 'Ichigo', '+7 (900) 900 00 11');
 
 --
 -- Индексы сохранённых таблиц
@@ -88,13 +96,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
