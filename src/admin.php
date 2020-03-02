@@ -6,10 +6,10 @@ require_once 'functions.php';
     <link rel="stylesheet" href="style.css">
     <h1>Список всех зарегистрированных пользователей</h1>
 <?php
-getAllTable($pdo, DB_TABLE_USERS, DB_NAME);
+getUsersTable($pdo, DB_TABLE_USERS);
 ?>
     <h1>Список всех заказов</h1>
 <?php
-getAllTable($pdo, DB_TABLE_ORDERS, DB_NAME);
+getOrdersTable($pdo, DB_TABLE_ORDERS);
 
 $dbh = null;

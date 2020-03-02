@@ -364,7 +364,7 @@
         <section class="section order">
           <div class="container">
             <div class="section__title">Закажите доставку</div>
-              <div id="my_message" class="section__title section__title_white" style="font-size:2rem;"></div>
+
             <div class="order__form">
               <form method="post" class="order__form-tag" id="order-form">
                 <div class="order__form-col">
@@ -417,12 +417,12 @@
                   <div class="order__form-buttons">
                     <div class="order__form-row">
                       <label class="order__radio">
-                        <input class="order__radio-elem" name="payment" type="radio">
+                        <input class="order__radio-elem" name="payment" type="radio" value="change">
                         <div class="order__radio-fake"></div>
                         <div class="order__radio-title">Потребуется сдача</div>
                       </label>
                       <label class="order__radio">
-                        <input class="order__radio-elem" name="payment" type="radio">
+                        <input class="order__radio-elem" name="payment" type="radio" value="pay_cart">
                         <div class="order__radio-fake"></div>
                         <div class="order__radio-title">Оплата по карте</div>
                       </label>
@@ -441,8 +441,10 @@
                   </div>
                 </div>
               </form>
+                <div id="my_message" class="section__title section__title_white" style="font-size:2rem;"></div>
             </div>
           </div>
+
         </section>
         <section class="section map">
           <div class="yandex-map" id="map"></div>
@@ -513,7 +515,7 @@
             $("#order-form").serialize(), // отправляемые данные
 
             function(msg) { // получен ответ сервера
-                $('#order-form').hide('slow');
+                //$('#order-form').hide('slow');
                 $('#my_message').html(msg);
             }
         );
